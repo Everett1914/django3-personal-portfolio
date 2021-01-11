@@ -123,3 +123,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+try:  #used for running both local and in production on hosted site.
+    from .local_settings import *
+except ImportError:
+    print("Possibly no local file. Perhaps using production file")
